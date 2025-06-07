@@ -22,10 +22,21 @@ scan.nextLine();
 
 switch(choice){
 case 1:
-System.out.println("Enter the task to add:");
+System.out.println("Enter the tasks to add and press -1 to stop : ");
+while(true){
 String task = scan.nextLine();
+if(task.equals("-1")){
+break;
+}
+
+if(!task.trim().isEmpty()){
 list.add(task);
-System.out.println("Task added successfully!");
+//System.out.println("Task added : "+task);
+}else{
+System.out.println("Empty task can't be added, try again");
+}
+}
+System.out.println("All tasks added to the list");
 System.out.println();
 break;
 
@@ -34,7 +45,7 @@ case 2:
 if(list.isEmpty()){
 System.out.println("No tasks added yet...");
 }else{
-System.out.println("-----Your tasks-----");
+System.out.println("-----Your tasks In the List-----");
 for(int i=0;i<list.size();i++){
 System.out.println((i+1) + "." + list.get(i));
 }
@@ -58,7 +69,7 @@ scan.nextLine();
 
 if(taskNumber >=1 && taskNumber <= list.size()){
 String removedTask = list.remove(taskNumber - 1);
-System.out.println("Task : " + removedTask + "removed successfully! " );
+System.out.println("Task : " + removedTask + " removed successfully! " );
 }else{
 System.out.println("Invalid Task number");
 }
